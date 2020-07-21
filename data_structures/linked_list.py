@@ -64,8 +64,9 @@ class LinkedList:
             del self._root
             self._root = element
         elif index == len(self)-1:
-            element = self._find_element(index)
-            del element
+            prev_element = self._find_element(index-1)
+            del prev_element.next
+            prev_element.next = None
         else:
             prev_element = self._find_element(index-1)
             element = prev_element.next
