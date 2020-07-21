@@ -83,3 +83,13 @@ class LinkedList:
 
         element = self._find_element(index)
         return element.data
+
+    def to_list(self):
+        data_list = []
+
+        element = self._root
+        while element is not None:
+            data_list.append(element.data)
+            element = element.next
+
+        return data_list
