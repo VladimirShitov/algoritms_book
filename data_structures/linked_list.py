@@ -49,14 +49,14 @@ class LinkedList:
         self._length += 1
 
     def add_element(self, index: int, data) -> None:
-        if not 0 < index <= self._length:
+        if not 0 <= index <= self._length:
             raise self.WrongIndexException
 
         element = _ListElement(data)
         self._add_element(index, element)
 
     def delete_element(self, index: int):
-        if not 0 < index < self._length:
+        if not 0 <= index < self._length:
             raise self.WrongIndexException
 
         if index == 0:
@@ -75,7 +75,7 @@ class LinkedList:
         self._length -= 1
 
     def get_element_data(self, index: int):
-        if not 0 < index < self._length:
+        if not 0 <= index < self._length:
             raise self.WrongIndexException
 
         element = self._find_element(index)
