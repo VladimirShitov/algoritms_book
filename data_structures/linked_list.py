@@ -77,3 +77,9 @@ class LinkedList:
             del element
 
         self._length -= 1
+
+    def get_element_data(self, index: int):
+        self._check_index(index)
+
+        element = self._find_element(index)
+        return element.data
