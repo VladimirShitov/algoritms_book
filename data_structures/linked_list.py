@@ -36,7 +36,7 @@ class LinkedList:
         return element
 
     def _add_element(self, index: int, element: _ListElement) -> None:
-        self._check_index()
+        self._check_index(index)
 
         if index == 0:
             element.next = self.root
