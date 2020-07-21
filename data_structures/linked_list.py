@@ -59,3 +59,21 @@ class LinkedList:
     def add_element(self, index: int, data) -> None:
         element = _ListElement(data)
         self._add_element(index, element)
+
+    def delete_element(self, index: int):
+        self._check_index(index)
+
+        if index == 0:
+            element = self._root.next  # It is an existing element or None if length of the list equals 0
+            del self._root
+            self._root = element
+        elif index == len(self):
+            element = self._find_element(index)
+            del element
+        else:
+            prev_element = self._find_element(index-1)
+            element = prev_element.next
+            prev_element.next = element.next
+            del element
+
+        self._length -= 1
