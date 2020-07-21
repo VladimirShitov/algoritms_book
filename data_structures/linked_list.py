@@ -19,13 +19,16 @@ class LinkedList:
     def __len__(self):
         return self._length
 
+    def _check_index(self, index: int):
+        if index > self._length or index < 0:
+            raise self.WrongIndexException
+
     def _find_element(self, index: int) -> _ListElement:
+        self._check_index(index)
+
         element = self._root
         if element is None:
             raise self.InvalidElementException
-
-        if index > self._length:
-            raise self.WrongIndexException
 
         for i in range(index):
             element = element.next
@@ -33,6 +36,8 @@ class LinkedList:
         return element
 
     def _add_element(self, index: int, element: _ListElement) -> None:
+        self._check_index()
+
         if index == 0:
             element.next = self.root
             self.root = element
