@@ -39,8 +39,8 @@ class LinkedList:
         self._check_index(index)
 
         if index == 0:
-            element.next = self.root
-            self.root = element
+            element.next = self._root
+            self._root = element
 
         elif index == len(self):
             prev_element = self._find_element(len(self)-1)
